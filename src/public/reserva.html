@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservas - Hotel Eclipse</title>
+    <link rel="stylesheet" href="css/reserva.css">
+</head>
+<body>
+    <h1>Sistema de Reservas - Hotel Eclipse</h1>
+
+    <form id="formReserva">
+        <input type="text" id="nombreCliente" placeholder="Nombre del cliente" required>
+        <input type="date" id="fechaEntrada" required>
+        <input type="date" id="fechaSalida" required>
+        <select id="habitacionSelect" required>
+            <option value="" disabled selected>Selecciona una habitación</option>
+            <!-- Las habitaciones se cargarán aquí dinámicamente -->
+        </select>
+        <button type="submit">Guardar reserva</button>
+    </form>
+
+    <h2>Lista de Reservas</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Cliente</th>
+                <th>Entrada</th>
+                <th>Salida</th>
+                <th>Habitación</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="tablaReservas">
+            <!-- Las reservas se cargan aquí -->
+        </tbody>
+    </table>
+
+    <script src="js/reserva.js"></script>
+</body>
+</html>
