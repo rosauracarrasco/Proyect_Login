@@ -2,37 +2,38 @@ const express = require("express");
 const cors = require("cors");
 const path = require("path");
 const usuariosRouter = require("./routes/usuarios");
-const reservasRoutes = require("./routes/reservas");
-const habitacionesRoutes = require("./routes/habitaciones");
+const reservasRouter = require("./routes/reservas");
+const habitacionesRouter = require("./routes/habitaciones");
+const authRouter = require("./routes/authRoutes");
 
 const app = express();
 
-// Middleware para permitir CORS
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// Servir archivos estáticos desde la carpeta 'public'
 app.use(express.static(path.join(__dirname, "public")));
 
-// Rutas de la API
 app.use("/api/usuarios", usuariosRouter);
-app.use("/api/reservas", reservasRoutes);
-app.use("/api/habitaciones", habitacionesRoutes);
+app.use("/api/reservas", reservasRouter);
+app.use("/api/habitaciones", habitacionesRouter);
+app.use("/api/auth", authRouter);
 
+// Páginas HTML
 app.get("/usuarios", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "usuario.html"));
+  res.sendFile(path.join(__dirname, "public", "usuario.html"));
 });
 app.get("/habitaciones", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "habitaciones.html"));
+  res.sendFile(path.join(__dirname, "public", "habitaciones.html"));
 });
-
-// Ruta para servir el archivo de reservas cuando accedes a la raíz
+app.get("/reservas", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "reserva.html"));
+});
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "reserva.html"));  // Asegúrate de que el nombre del archivo sea correcto
+  res.sendFile(path.join(__dirname, "public", "login.html"));
 });
 
-// Iniciar el servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`Servidor corriendo en http://localhost:${PORT}`);
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
