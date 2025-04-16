@@ -3,12 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Habitaciones</title>
-    <link rel="stylesheet" href="css/habitaciones.css">
+    <title>Gestión de Habitaciones - Hotel Eclipse</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            width: 90%;
+            max-width: 1000px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #3e8e41;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #3e8e41;
+            font-size: 1.1rem;
+            margin-top: 10px;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #ff8c00;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: grid;
+            gap: 15px;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #444;
+        }
+
+        input[type="number"], input[type="text"], select {
+            padding: 12px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #3e8e41;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2d6a2d;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: #3e8e41;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        #editHabitacionModal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            width: 400px;
+            text-align: center;
+        }
+
+        .modal-content h2 {
+            font-size: 1.6rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .modal-content input, .modal-content select {
+            margin-bottom: 15px;
+        }
+
+        .modal-content button {
+            margin-top: 20px;
+        }
+
+        #closeModal {
+            background-color: #ff8c00;
+            border: none;
+        }
+
+        #closeModal:hover {
+            background-color: #e67e00;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Gestión de Habitaciones</h1><a href="/reservas" >Reserva</a>
+        <h1>Gestión de Habitaciones</h1>
+        <a href="/reservas">Ir a Reservas</a>
 
         <h2>Agregar Habitación</h2>
         <form id="addHabitacionForm">
@@ -46,6 +194,7 @@
             </tbody>
         </table>
 
+        <!-- Modal para editar habitación -->
         <div id="editHabitacionModal" class="modal">
             <div class="modal-content">
                 <h2>Editar Habitación</h2>
@@ -69,8 +218,7 @@
             </div>
         </div>
     </div>
-    
-    
+
     <script src="js/habitaciones.js"></script>
 </body>
 </html>

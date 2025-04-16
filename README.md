@@ -8,7 +8,7 @@ Este sistema permite:
 - Gestionar habitaciones del hotel (agregar, editar, eliminar).
 - Realizar y administrar reservas de clientes.
 - Consultar el estado de reservas y detalles de habitaciones.
-- Comunicación entre un servidor Node.js y una base de datos SQL Server.
+- Comunicación entre un servidor Node.js y una base Azure.
 
 ---
 
@@ -16,7 +16,7 @@ Este sistema permite:
 
 - **Node.js** – Entorno de ejecución backend.
 - **Express.js** – Framework para gestionar rutas y middleware.
-- **SQL Server** – Base de datos relacional para el almacenamiento.
+- **AZURE** – Base de datos para el almacenamiento.
 - **mssql** – Cliente de Node.js para conectarse a SQL Server.
 - **dotenv** – Manejo de variables de entorno.
 - **Fetch API** – Solicitudes HTTP desde el cliente.
